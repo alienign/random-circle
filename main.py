@@ -26,13 +26,15 @@ class Example(QWidget):
             qp.begin(self)
             self.draw(qp)
             qp.end()
+
     def paint(self):
         self.do_paint = True
         self.repaint()
 
     def draw(self, qp):
         size = random.randrange(650)
-        qp.setBrush(Qt.yellow)
+        r, g, b = random.randrange(256), random.randrange(256), random.randrange(256)
+        qp.setBrush(QColor(r, g, b))
         qp.drawEllipse(10, 10, size, size)
         self.do_paint = False
 
